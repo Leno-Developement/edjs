@@ -1,0 +1,32 @@
+{
+  "name": "edjs",
+  "version": "1.0.0",
+  "description": "s",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "prettier --w src && tsc",
+    "test": "npm run build && node dist/__tests__/runner.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leno-Developement/edjs.git"
+  },
+  "keywords": [
+    "edjs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leno-Developement/edjs/issues"
+  },
+  "homepage": "https://github.com/Leno-Developement/edjs#readme",
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "prettier": "^3.3.2",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "discord.js": "^14.15.3"
+  }
+}
