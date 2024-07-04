@@ -1,2 +1,2 @@
-export * from "./classes";
+export {};
 //# sourceMappingURL=index.d.ts.map

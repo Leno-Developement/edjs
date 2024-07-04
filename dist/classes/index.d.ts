@@ -1,2 +1,2 @@
-export * from "./classes";
+export * from "./EasyClient";
 //# sourceMappingURL=index.d.ts.map
