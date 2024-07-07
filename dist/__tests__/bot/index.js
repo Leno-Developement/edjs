@@ -7,4 +7,5 @@ let client = new __1.EasyClient({
     intents: ["Guilds", "GuildMessages", "MessageContent"],
 });
 client.login();
+console.log(client.managers);
 //# sourceMappingURL=index.js.map

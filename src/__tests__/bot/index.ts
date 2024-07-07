@@ -7,3 +7,5 @@ let client = new EasyClient({
 });
 
 client.login();
+
+console.log(client.managers)

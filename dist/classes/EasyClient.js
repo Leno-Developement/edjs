@@ -2,7 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EasyClient = void 0;
 const discord_js_1 = require("discord.js");
+const _1 = require(".");
 class EasyClient extends discord_js_1.Client {
+    managers = new _1.Manager(this);
     constructor(options) {
         super({
             ...options,

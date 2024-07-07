@@ -1,0 +1,1 @@
+{"version":3,"file":"Manager.d.ts","sourceRoot":"","sources":["../../src/classes/Manager.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,UAAU,EAAE,MAAM,GAAG,CAAC;AAC/B,OAAO,EAAE,YAAY,EAAE,MAAM,YAAY,CAAC;AAE1C,qBAAa,OAAO;;IAElB,SAAgB,MAAM,eAA0B;gBAC7B,MAAM,EAAE,UAAU;IAIrC,IAAI,MAAM,eAET;CACF"}

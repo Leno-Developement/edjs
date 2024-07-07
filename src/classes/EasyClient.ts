@@ -1,4 +1,5 @@
 import { Client, ClientOptions, IntentsBitField, Message } from "discord.js";
+import { Manager } from ".";
 
 /**
  * Resolvable for client prefixes
@@ -37,7 +38,7 @@ export class EasyClient extends Client<true> {
     intents: IntentsBitField;
   }) &
     IEasyClientOptions;
-
+  public readonly managers = new Manager(this);
   public constructor(options: IRawEasyClientOptions) {
     super({
       ...options,

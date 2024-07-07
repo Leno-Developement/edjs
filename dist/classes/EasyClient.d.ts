@@ -1,4 +1,5 @@
 import { Client, ClientOptions, IntentsBitField, Message } from "discord.js";
+import { Manager } from ".";
 export type PrefixResolvable = string | Prefix;
 export type Prefix = (client: EasyClient, message: Message) => string | Promise<string>;
 export interface IRawEasyClientOptions extends ClientOptions {
@@ -13,6 +14,7 @@ export declare class EasyClient extends Client<true> {
     options: (Omit<ClientOptions, "intents"> & {
         intents: IntentsBitField;
     }) & IEasyClientOptions;
+    readonly managers: Manager;
     constructor(options: IRawEasyClientOptions);
     login(token?: string): Promise<string>;
 }

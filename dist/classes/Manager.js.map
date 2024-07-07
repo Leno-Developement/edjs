@@ -1,0 +1,1 @@
+{"version":3,"file":"Manager.js","sourceRoot":"","sources":["../../src/classes/Manager.ts"],"names":[],"mappings":";;;AACA,yCAA0C;AAE1C,MAAa,OAAO;IAClB,OAAO,CAAa;IACJ,MAAM,GAAG,IAAI,uBAAY,CAAC,IAAI,CAAC,CAAC;IAChD,YAAmB,MAAkB;QACnC,IAAI,CAAC,OAAO,GAAG,MAAM,CAAC;IACxB,CAAC;IAED,IAAI,MAAM;QACR,OAAO,IAAI,CAAC,OAAO,CAAC;IACtB,CAAC;CACF;AAVD,0BAUC"}
