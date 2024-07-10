@@ -1,0 +1,130 @@
+[
+  {
+    "name": "EasyClient",
+    "meta": {
+      "file": "src/classes/EasyClient.ts",
+      "line": 36,
+      "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/EasyClient.ts#L36"
+    },
+    "extends": [
+      "Client"
+    ],
+    "properties": [
+      {
+        "name": "options",
+        "type": "Omit<ClientOptions, \"intents\"> & { intents: IntentsBitField; } & IEasyClientOptions",
+        "meta": {
+          "file": "src/classes/EasyClient.ts",
+          "line": 37,
+          "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/EasyClient.ts#L37"
+        },
+        "access": "public"
+      },
+      {
+        "name": "managers",
+        "type": "Manager",
+        "meta": {
+          "file": "src/classes/EasyClient.ts",
+          "line": 41,
+          "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/EasyClient.ts#L41"
+        },
+        "access": "public"
+      }
+    ],
+    "methods": [
+      {
+        "name": "login",
+        "type": "Promise<string>",
+        "meta": {
+          "file": "src/classes/EasyClient.ts",
+          "line": 60,
+          "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/EasyClient.ts#L60"
+        },
+        "access": "public",
+        "params": [
+          {
+            "name": "token",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "constructor": {
+      "meta": {
+        "file": "src/classes/EasyClient.ts",
+        "line": 42,
+        "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/EasyClient.ts#L42"
+      },
+      "params": [
+        {
+          "name": "options",
+          "type": "IRawEasyClientOptions"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Manager",
+    "meta": {
+      "file": "src/classes/Manager.ts",
+      "line": 4,
+      "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/Manager.ts#L4"
+    },
+    "properties": [
+      {
+        "name": "events",
+        "type": "EventManager",
+        "meta": {
+          "file": "src/classes/Manager.ts",
+          "line": 6,
+          "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/Manager.ts#L6"
+        },
+        "access": "public"
+      },
+      {
+        "name": "client",
+        "type": "EasyClient",
+        "meta": {
+          "file": "src/classes/Manager.ts",
+          "line": 11,
+          "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/Manager.ts#L11"
+        },
+        "access": "protected"
+      }
+    ],
+    "constructor": {
+      "meta": {
+        "file": "src/classes/Manager.ts",
+        "line": 7,
+        "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/Manager.ts#L7"
+      },
+      "params": [
+        {
+          "name": "client",
+          "type": "EasyClient"
+        }
+      ]
+    }
+  },
+  {
+    "name": "EventManager",
+    "meta": {
+      "file": "src/classes/managers/EventManager.ts",
+      "line": 3,
+      "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/managers/EventManager.ts#L3"
+    },
+    "constructor": {
+      "meta": {
+        "file": "src/classes/managers/EventManager.ts",
+        "line": 4,
+        "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/managers/EventManager.ts#L4"
+      },
+      "params": [
+        {
+          "name": "main",
+          "type": "Manager"
+        }
+      ]
+    }
+  }
+]

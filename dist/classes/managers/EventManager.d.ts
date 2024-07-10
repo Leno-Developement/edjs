@@ -1,6 +1,6 @@
 import { Manager } from "..";
 export declare class EventManager {
-    parent: Manager;
-    constructor(parent: Manager);
+    main: Manager;
+    constructor(main: Manager);
 }
 //# sourceMappingURL=EventManager.d.ts.map

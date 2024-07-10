@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventManager = void 0;
 class EventManager {
-    parent;
-    constructor(parent) {
-        this.parent = parent;
+    main;
+    constructor(main) {
+        this.main = main;
     }
 }
 exports.EventManager = EventManager;

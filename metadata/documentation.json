@@ -1,0 +1,199 @@
+{
+  "classes": {
+    "EasyClient": [
+      {
+        "objectType": "type",
+        "name": "PrefixResolvable",
+        "type": "PrefixResolvable",
+        "rawText": "export type PrefixResolvable = string | Prefix;"
+      },
+      {
+        "objectType": "type",
+        "name": "Prefix",
+        "type": "Prefix",
+        "rawText": "export type Prefix = (\n  client: EasyClient,\n  message: Message,\n) => string | Promise<string>;"
+      },
+      {
+        "objectType": "interface",
+        "name": "IRawEasyClientOptions",
+        "properties": [
+          {
+            "objectType": "property",
+            "name": "token",
+            "type": "string",
+            "get": false,
+            "set": false,
+            "visibility": "public",
+            "rawText": "token?: string;"
+          },
+          {
+            "objectType": "property",
+            "name": "prefixes",
+            "type": "PrefixResolvable[]",
+            "get": false,
+            "set": false,
+            "visibility": "public",
+            "rawText": "prefixes?: PrefixResolvable[];"
+          }
+        ],
+        "filePath": "classes/EasyClient",
+        "rawText": "export interface IRawEasyClientOptions extends ClientOptions {\n  /**\n   * Bot's token.\n   */\n  token?: string;\n\n  prefixes?: PrefixResolvable[];\n}"
+      },
+      {
+        "objectType": "interface",
+        "name": "IEasyClientOptions",
+        "properties": [
+          {
+            "objectType": "property",
+            "name": "prefixes",
+            "type": "Prefix[]",
+            "get": false,
+            "set": false,
+            "visibility": "public",
+            "rawText": "prefixes: Prefix[];"
+          }
+        ],
+        "filePath": "classes/EasyClient",
+        "rawText": "export interface IEasyClientOptions\n  extends Omit<IRawEasyClientOptions, \"prefixes\"> {\n  prefixes: Prefix[];\n}"
+      },
+      {
+        "objectType": "class",
+        "name": "EasyClient",
+        "filePath": "classes/EasyClient",
+        "extends": [
+          "Client"
+        ],
+        "properties": {
+          "public": [
+            {
+              "objectType": "property",
+              "name": "options",
+              "type": "Omit<ClientOptions, \"intents\"> & { intents: IntentsBitField; } & IEasyClientOptions",
+              "visibility": "public",
+              "rawText": "public declare options: (Omit<ClientOptions, \"intents\"> & {\n    intents: IntentsBitField;\n  }) &\n    IEasyClientOptions;"
+            },
+            {
+              "objectType": "property",
+              "name": "managers",
+              "type": "Manager",
+              "visibility": "public",
+              "rawText": "public readonly managers = new Manager(this);"
+            }
+          ]
+        },
+        "methods": {
+          "public": [
+            {
+              "objectType": "method",
+              "name": "login",
+              "returnType": "Promise<string>",
+              "params": [
+                {
+                  "name": "token",
+                  "type": "string"
+                }
+              ],
+              "visibility": "public",
+              "rawText": "public override login(token?: string) {\n    return super.login(token ?? this.options.token);\n  }"
+            }
+          ],
+          "protected": [
+            {
+              "objectType": "method",
+              "name": "#init",
+              "returnType": "void",
+              "params": [
+                {
+                  "name": "opts",
+                  "type": "IRawEasyClientOptions"
+                }
+              ],
+              "visibility": "protected",
+              "rawText": "#init(opts: IRawEasyClientOptions) {\n    this.options.prefixes =\n      opts.prefixes?.map((x) =>\n        typeof x === \"function\"\n          ? x\n          : function () {\n              return x.toString();\n            },\n      ) ?? [];\n  }"
+            }
+          ]
+        },
+        "constructor": {
+          "objectType": "constructor",
+          "name": "constructor",
+          "params": [
+            {
+              "name": "options",
+              "type": "IRawEasyClientOptions"
+            }
+          ],
+          "rawText": "public constructor(options: IRawEasyClientOptions) {\n    super({\n      ...options,\n    });\n    this.#init(options);\n  }"
+        },
+        "rawText": "export class EasyClient extends Client<true> {\n  public declare options: (Omit<ClientOptions, \"intents\"> & {\n    intents: IntentsBitField;\n  }) &\n    IEasyClientOptions;\n  public readonly managers = new Manager(this);\n  public constructor(options: IRawEasyClientOptions) {\n    super({\n      ...options,\n    });\n    this.#init(options);\n  }\n\n  #init(opts: IRawEasyClientOptions) {\n    this.options.prefixes =\n      opts.prefixes?.map((x) =>\n        typeof x === \"function\"\n          ? x\n          : function () {\n              return x.toString();\n            },\n      ) ?? [];\n  }\n\n  public override login(token?: string) {\n    return super.login(token ?? this.options.token);\n  }\n}"
+      }
+    ],
+    "Manager": [
+      {
+        "objectType": "class",
+        "name": "Manager",
+        "filePath": "classes/Manager",
+        "properties": {
+          "public": [
+            {
+              "objectType": "property",
+              "name": "events",
+              "type": "EventManager",
+              "visibility": "public",
+              "rawText": "public readonly events = new EventManager(this);"
+            }
+          ],
+          "protected": [
+            {
+              "objectType": "property",
+              "name": "#client",
+              "type": "EasyClient",
+              "visibility": "protected",
+              "rawText": "#client: EasyClient;"
+            },
+            {
+              "objectType": "property",
+              "name": "client",
+              "type": "EasyClient",
+              "visibility": "protected",
+              "rawText": "get client() {\n    return this.#client;\n  }",
+              "get": true
+            }
+          ]
+        },
+        "constructor": {
+          "objectType": "constructor",
+          "name": "constructor",
+          "params": [
+            {
+              "name": "client",
+              "type": "EasyClient"
+            }
+          ],
+          "rawText": "public constructor(client: EasyClient) {\n    this.#client = client;\n  }"
+        },
+        "rawText": "export class Manager {\n  #client: EasyClient;\n  public readonly events = new EventManager(this);\n  public constructor(client: EasyClient) {\n    this.#client = client;\n  }\n\n  get client() {\n    return this.#client;\n  }\n}"
+      }
+    ],
+    "managers": {
+      "EventManager": [
+        {
+          "objectType": "class",
+          "name": "EventManager",
+          "filePath": "classes/managers/EventManager",
+          "constructor": {
+            "objectType": "constructor",
+            "name": "constructor",
+            "params": [
+              {
+                "name": "main",
+                "type": "Manager"
+              }
+            ],
+            "rawText": "public constructor(public main: Manager) {}"
+          },
+          "rawText": "export class EventManager {\n  public constructor(public main: Manager) {}\n}"
+        }
+      ]
+    }
+  }
+}

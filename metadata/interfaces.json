@@ -1,0 +1,52 @@
+[
+  {
+    "name": "IRawEasyClientOptions",
+    "meta": {
+      "file": "src/classes/EasyClient.ts",
+      "line": 19,
+      "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/EasyClient.ts#L19"
+    },
+    "properties": [
+      {
+        "name": "token",
+        "type": "string",
+        "meta": {
+          "file": "src/classes/EasyClient.ts",
+          "line": 23,
+          "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/EasyClient.ts#L23"
+        },
+        "access": "public"
+      },
+      {
+        "name": "prefixes",
+        "type": "PrefixResolvable[]",
+        "meta": {
+          "file": "src/classes/EasyClient.ts",
+          "line": 25,
+          "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/EasyClient.ts#L25"
+        },
+        "access": "public"
+      }
+    ]
+  },
+  {
+    "name": "IEasyClientOptions",
+    "meta": {
+      "file": "src/classes/EasyClient.ts",
+      "line": 28,
+      "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/EasyClient.ts#L28"
+    },
+    "properties": [
+      {
+        "name": "prefixes",
+        "type": "Prefix[]",
+        "meta": {
+          "file": "src/classes/EasyClient.ts",
+          "line": 30,
+          "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/EasyClient.ts#L30"
+        },
+        "access": "public"
+      }
+    ]
+  }
+]

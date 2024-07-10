@@ -1,0 +1,20 @@
+[
+  {
+    "name": "PrefixResolvable",
+    "type": "string | Prefix",
+    "meta": {
+      "file": "src/classes/EasyClient.ts",
+      "line": 7,
+      "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/EasyClient.ts#L7"
+    }
+  },
+  {
+    "name": "Prefix",
+    "type": "(client: EasyClient,message: Message,) => string | Promise<string>",
+    "meta": {
+      "file": "src/classes/EasyClient.ts",
+      "line": 12,
+      "github": "https://github.com/Leno-Developement/edjs/blob/main/src/classes/EasyClient.ts#L12"
+    }
+  }
+]
